@@ -50,13 +50,12 @@
     document.getElementById('status').innerHTML = "❌ 無法取得定位。請確認手機已開啟 GPS，並在瀏覽器跳出提示時點選「允許定位」，接著重新整理此網頁。";
   }
 
-  function goToForm() {
-    // 已自動換成您專屬的 Google 表單 ID 與 GPS 欄位代碼
-    var baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfAlCwXGlDPmcSOTe3jNRX3-WgES4ayYtQwJTR7BGZXnVzL1A/viewform?usp=pp_url"; 
-    var entryId = "entry.1890881783"; 
+function goToForm() {
+    // 這是最保險的一整串組合寫法，直接把經緯度代入您的欄位
+    var formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfAlCwXGlDPmcSOTe3jNRX3-WgES4ayYtQwJTR7BGZXnVzL1A/viewform?usp=pp_url&entry.1890881783=" + userLat + "," + userLng;
     
-    var finalUrl = baseUrl + "&" + entryId + "=" + userLat + "," + userLng;
-    window.location.href = finalUrl;
+    // 執行跳轉
+    window.location.href = formUrl;
   }
 </script>
 
