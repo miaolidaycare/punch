@@ -43,7 +43,7 @@
     userLat = position.coords.latitude;
     userLng = position.coords.longitude;
     document.getElementById('status').innerHTML = "✅ 定位成功！請點擊下方按鈕完成打卡。";
-    document.getElementById('punchBtn').style.display = "block"; // 顯示按鈕
+    document.getElementById('punchBtn').style.display = "block";
   }
 
   function error(err) {
@@ -51,80 +51,11 @@
   }
 
   function goToForm() {
-    // ⚠️【請注意：下面這兩行請務必改成您在「第二步」獲得的資料】
-    var baseUrl = "<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>工作室員工打卡系統</title>
-  <style>
-    body { font-family: "Microsoft JhengHei", Arial, sans-serif; text-align: center; background-color: #f4f6f9; padding: 40px 20px; color: #333; }
-    .container { max-width: 400px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-    h2 { color: #2c3e50; margin-bottom: 10px; }
-    .status-box { background-color: #eef2f7; padding: 15px; border-radius: 8px; margin: 20px 0; font-size: 15px; }
-    .btn { background-color: #00b900; color: white; border: none; padding: 16px 32px; font-size: 18px; font-weight: bold; border-radius: 50px; cursor: pointer; text-decoration: none; display: none; width: 100%; box-sizing: border-box; box-shadow: 0 4px 6px rgba(0,185,0,0.2); }
-    .btn:hover { background-color: #009f00; }
-  </style>
-</head>
-<body>
-
-<div class="container">
-  <h2>工作室打卡系統</h2>
-  <p style="color: #666; font-size: 14px;">打卡前請確保手機已開啟 GPS 定位</p>
-  
-  <div id="status" class="status-box">正在取得 GPS 安全定位中...</div>
-  
-  <button id="punchBtn" class="btn" onclick="goToForm()">前往填寫上下班單</button>
-</div>
-
-<script>
-  var userLat = "";
-  var userLng = "";
-
-  window.onload = function() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success, error, {
-        enableHighAccuracy: true,
-        timeout: 8000
-      });
-    } else {
-      document.getElementById('status').innerHTML = "❌ 您的瀏覽器不支援定位功能。";
-    }
-  };
-
-  function success(position) {
-    userLat = position.coords.latitude;
-    userLng = position.coords.longitude;
-    document.getElementById('status').innerHTML = "✅ 定位成功！請點擊下方按鈕完成打卡。";
-    document.getElementById('punchBtn').style.display = "block"; // 顯示按鈕
-  }
-
-  function error(err) {
-    document.getElementById('status').innerHTML = "❌ 無法取得定位。請確認手機已開啟 GPS，並在瀏覽器跳出提示時點選「允許定位」，接著重新整理此網頁。";
-  }
-
-  function goToForm() {
-    // ⚠️【請注意：下面這兩行請務必改成您在「第二步」獲得的資料】
-    var baseUrl = "https://docs.google.com/forms/d/e/xxxxxxxxxxxxxx/viewform?usp=pp_url"; 
+    // 已自動換成您專屬的 Google 表單 ID 與 GPS 欄位代碼
+    var baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfAlCwXGlDPmcSOTe3jNRX3-WgES4ayYtQwJTR7BGZXnVzL1A/viewform?usp=pp_url"; 
     var entryId = "entry.1890881783"; 
     
-    // 自動組合成帶有 GPS 的最終網址
     var finalUrl = baseUrl + "&" + entryId + "=" + userLat + "," + userLng;
-    
-    // 跳轉
-    window.location.href = finalUrl;
-  }
-</script>
-
-</body>
-</html>"; 
-    var entryId = "entry.1890881783"; 
-    
-    // 自動組合成帶有 GPS 的最終網址
-    var finalUrl = baseUrl + "&" + entryId + "=" + userLat + "," + userLng;
-    
-    // 跳轉
     window.location.href = finalUrl;
   }
 </script>
